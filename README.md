@@ -1,6 +1,6 @@
 # profile_app
 
-A new Flutter project for creating a ListView Application. Below you will see how the application looks like. \
+A new Flutter project for creating a ListView Application. Below you will see how the application looks like. This utlizes GET API calls for data.\
 ![Image Name](images/images.png)
 
 ## Getting Started
