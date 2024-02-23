@@ -17,7 +17,29 @@ class ProfilePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 80),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(
+                  width: 5,
+                ),
+                SizedBox(
+                  height: 80,
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      size: 27,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ],
+            ),
             Stack(
               alignment: Alignment.center,
               children: <Widget>[
@@ -25,19 +47,6 @@ class ProfilePage extends StatelessWidget {
                   height: 120,
                   width: 350,
                   child: Image.asset('lib/src/profile.png'),
-                ),
-                Positioned(
-                  top: 0,
-                  right: 0,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.close,
-                      size: 27,
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
                 ),
               ],
             ),
