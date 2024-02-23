@@ -1,7 +1,7 @@
 # profile_app
 
 A Flutter project for creating a ListView Application and profile view. Below you will see how the application looks like. This utlizes GET API calls for data.This is what the stripped version looks like:/
-![Image Name](images/stripped.png)
+![Image Name](images/stripped.png)/
 This is what the previous version looked like:/
 ![Image Name](images/images.png)
 
