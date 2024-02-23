@@ -12,6 +12,9 @@ class ToDoInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("To Do"),
+      ),
       body: ListView.builder(
         itemCount: toDos.length,
         itemBuilder: ((context, index) {
