@@ -49,17 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Background(),
       appBar: AppBar(
-        backgroundColor: Background(),
         title: Center(
             child: Text(
           "List of Users",
-          style: TextStyle(
-              fontFamily: 'Times New Roman',
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-              color: Primary()),
         )),
       ),
       body: ListView.builder(
@@ -69,33 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               const Divider(),
               ListTile(
-                tileColor: DarkerBackground(),
                 title: Text(
                   listOfPeople.elementAt(index).name,
-                  style: const TextStyle(
-                    fontFamily: 'Times New Roman',
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    color: Colors.yellow,
-                  ),
                 ),
                 subtitle: Text(
                   "${listOfPeople.elementAt(index).email} | ${listOfPeople.elementAt(index).phone}",
-                  style: const TextStyle(
-                    fontFamily: 'Times New Roman',
-                    fontWeight: FontWeight.w100,
-                    fontSize: 12,
-                    color: Colors.white,
-                  ),
                 ),
                 leading: const Icon(
                   Icons.person_4_outlined,
-                  color: Color.fromARGB(221, 255, 255, 255),
                   size: 30.0,
                 ),
                 trailing: const Icon(
                   Icons.navigate_next,
-                  color: Color.fromARGB(221, 255, 255, 255),
                 ),
                 onTap: () {
                   Navigator.push(

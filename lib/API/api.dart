@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const String baseUrl = "https://jsonplaceholder.typicode.com/";
+const String baseUrl = "http://192.168.22.4:3003/";
 
 class ApiVerbs {
   var client = http.Client();
@@ -12,11 +12,7 @@ class ApiVerbs {
   Future<dynamic> get(String api) async {
     var url = Uri.parse(baseUrl + api);
     var response = await client.get(url);
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      //throw exception
-    }
+    return response.body;
   }
 
   Future<dynamic> post(String api, dynamic data) async {

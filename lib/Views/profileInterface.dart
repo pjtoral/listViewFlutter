@@ -13,7 +13,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 5, 28, 61),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -22,22 +21,18 @@ class ProfilePage extends StatelessWidget {
             Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                // Image centered in the stack
                 SizedBox(
                   height: 120,
                   width: 350,
                   child: Image.asset('lib/src/profile.png'),
                 ),
-                // Close button positioned at the top-right corner
                 Positioned(
                   top: 0,
                   right: 0,
                   child: IconButton(
                     icon: Icon(
-                      Icons.close, // Specify the icon you want to use
-                      color: Colors
-                          .white, // Change the color of the icon (optional)
-                      size: 27, // Change the size of the icon (optional)
+                      Icons.close,
+                      size: 27,
                     ),
                     onPressed: () {
                       Navigator.pop(context);
@@ -50,18 +45,10 @@ class ProfilePage extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
               child: Text(
                 listOfPeople.elementAt(index).name,
-                style: TextStyle(
-                    fontFamily: 'Times New Roman',
-                    fontSize: 35,
-                    color: Colors.yellow),
               ),
             ),
             Text(
               "${listOfPeople.elementAt(index).email}",
-              style: TextStyle(
-                  fontFamily: 'Times New Roman',
-                  fontSize: 20,
-                  color: Colors.white),
             ),
             SizedBox(
               height: 20,
@@ -77,203 +64,119 @@ class ProfilePage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .person_4_outlined, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.person_4_outlined,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           Text(
                             listOfPeople.elementAt(index).username,
-                            style: TextStyle(
-                                fontFamily:
-                                    'Roboto', // Using Roboto font family
-                                fontSize: 18, // Font size 20
-                                color: Colors.white),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons.phone, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.phone,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           Text(
                             listOfPeople.elementAt(index).phone,
-                            style: TextStyle(
-                                fontFamily:
-                                    'Roboto', // Using Roboto font family
-                                fontSize: 18, // Font size 20
-                                color: Colors.white),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .location_city, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.location_city,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           Expanded(
                             child: Text(
                               listOfPeople.elementAt(index).address.fullAddress,
-                              style: TextStyle(
-                                  fontFamily:
-                                      'Roboto', // Using Roboto font family
-                                  fontSize: 18, // Font size 20
-                                  color: Colors.white),
                               overflow: TextOverflow.fade,
                               maxLines: 3,
                             ),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .web_stories, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 18, // Change the size of the icon (optional)
+                            Icons.web_stories,
+                            size: 18,
                           ),
                           SizedBox(width: 20),
                           Text(
                             ' ${listOfPeople.elementAt(index).website}',
-                            style: TextStyle(
-                                fontFamily:
-                                    'Roboto', // Using Roboto font family
-                                fontSize: 18, // Font size 20
-                                color: Colors.white),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .email_outlined, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.email_outlined,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           Expanded(
                             child: Text(
                               listOfPeople.elementAt(index).company.fullCompany,
-                              style: TextStyle(
-                                  fontFamily:
-                                      'Roboto', // Using Roboto font family
-                                  fontSize: 18, // Font size 20
-                                  color: Colors.white),
                               maxLines: 3,
                             ),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .share_outlined, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.share_outlined,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           const Text(
                             'Share This Profile',
-                            style: TextStyle(
-                                fontFamily:
-                                    'Roboto', // Using Roboto font family
-                                fontSize: 18, // Font size 20
-                                color: Colors.white),
                           ),
                         ]),
                     Divider(
-                      // Adjust the height of the line
-                      thickness: 2, // Adjust the thickness of the line
-                      color: Colors.grey, // Adjust the color of the line
+                      thickness: 2,
                     ),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           Icon(
-                            Icons
-                                .help_outline, // Specify the icon you want to use
-                            color: Colors
-                                .yellow, // Change the color of the icon (optional)
-                            size: 24, // Change the size of the icon (optional)
+                            Icons.help_outline,
+                            size: 24,
                           ),
                           SizedBox(width: 20),
                           const Text(
                             'Help',
-                            style: TextStyle(
-                                fontFamily:
-                                    'Roboto', // Using Roboto font family
-                                fontSize: 18, // Font size 20
-                                color: Colors.white),
                           ),
                         ]),
                   ],
                 ),
               ),
             ),
-            // SizedBox(
-            //   height: 100,
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.center,
-            //     crossAxisAlignment: CrossAxisAlignment.end,
-            //     children: <Widget>[
-            //       const Text(
-            //         'Sign Out',
-            //         style: TextStyle(
-            //             fontFamily: 'Roboto', // Using Roboto font family
-            //             fontSize: 20, // Font size 20
-            //             color: Colors.white),
-            //       ),
-            //     ],
-            //   ),
-            // ),
             SizedBox(height: 30)
           ],
         ),
       ),
-      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
