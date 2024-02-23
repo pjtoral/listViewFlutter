@@ -15,6 +15,7 @@ class Person {
   String phone;
   String website;
   Company company;
+  List<Todo> todos;
 
   Person({
     required this.id,
@@ -25,6 +26,7 @@ class Person {
     required this.phone,
     required this.website,
     required this.company,
+    required this.todos,
   });
 
   factory Person.fromJson(Map<String, dynamic> json) => Person(
@@ -36,6 +38,7 @@ class Person {
         phone: json["phone"],
         website: json["website"],
         company: Company.fromJson(json["company"]),
+        todos: List<Todo>.from(json["todos"].map((x) => Todo.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -47,6 +50,7 @@ class Person {
         "phone": phone,
         "website": website,
         "company": company.toJson(),
+        "todos": List<dynamic>.from(todos.map((x) => x.toJson())),
       };
 }
 
@@ -133,4 +137,20 @@ class Company {
       };
 
   String get fullCompany => '$name\n$catchPhrase \nbs: $bs';
+}
+
+class Todo {
+  String title;
+
+  Todo({
+    required this.title,
+  });
+
+  factory Todo.fromJson(Map<String, dynamic> json) => Todo(
+        title: json["title"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+      };
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import '../../Models/profile.dart';
+import '../../Views/toDoInterface.dart';
 
 class ProfilePage extends StatelessWidget {
   final int index;
@@ -182,7 +183,42 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 30)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 100,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ToDoInterface(
+                              index: index,
+                              toDos: listOfPeople.elementAt(index).todos),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'To Do List',
+                      style: TextStyle(
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 30),
           ],
         ),
       ),
