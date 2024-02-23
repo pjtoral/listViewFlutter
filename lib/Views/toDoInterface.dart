@@ -26,7 +26,7 @@ class ToDoInterface extends StatelessWidget {
                   toDos.elementAt(index).title,
                 ),
                 leading: const Icon(
-                  Icons.check_box,
+                  Icons.check_box_outline_blank,
                   size: 30.0,
                 ),
               ),
