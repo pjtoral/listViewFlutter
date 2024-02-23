@@ -3,12 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:profile_app_2/Models/profile.dart';
 
-class ToDoInterface extends StatelessWidget {
+class ToDoInterface extends StatefulWidget {
   final int index;
   final List<Todo> toDos;
 
   const ToDoInterface({super.key, required this.index, required this.toDos});
 
+  @override
+  ToDoInterfaceState createState() => ToDoInterfaceState();
+}
+
+class ToDoInterfaceState extends State<ToDoInterface> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,20 +21,23 @@ class ToDoInterface extends StatelessWidget {
         title: const Text("To Do"),
       ),
       body: ListView.builder(
-        itemCount: toDos.length,
+        itemCount: widget.toDos.length,
         itemBuilder: ((context, index) {
           return Column(
             children: <Widget>[
               const Divider(),
               ListTile(
-                title: Text(
-                  toDos.elementAt(index).title,
-                ),
-                leading: const Icon(
-                  Icons.check_box_outline_blank,
-                  size: 30.0,
-                ),
-              ),
+                  title: Text(
+                    widget.toDos.elementAt(index).title,
+                  ),
+                  leading: Checkbox(
+                      value: widget.toDos.elementAt(index).completed,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          widget.toDos.elementAt(index).completed =
+                              value ?? false;
+                        });
+                      })),
             ],
           );
         }),
