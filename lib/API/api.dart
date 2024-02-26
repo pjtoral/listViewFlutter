@@ -1,66 +1,67 @@
-// ignore_for_file: file_names
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
-const String baseUrl = "http://192.168.22.4:3003/";
+const String baseUrl = "http://192.168.22.4:3003/users";
 
 class ApiVerbs {
-  var client = http.Client();
+  final http.Client client;
 
-  Future<dynamic> get(String api) async {
-    var url = Uri.parse(baseUrl + api);
-    var response = await client.get(url);
-    return response.body;
-  }
+  ApiVerbs(this.client);
 
-  Future<dynamic> post(String api, dynamic data) async {
-    var url = Uri.parse(baseUrl + api);
-    var _data = json.encode(data);
-    debugPrint(_data);
-    var response = await client.post(
-      url,
-      headers: {
-        'Content-Type': 'application/json'
-      }, // Set the Content-Type header
-      body: _data,
-    );
-
-    if (response.statusCode == 201) {
-      return response.body;
-    } else {
-      //throw exception
-    }
-  }
-
-  Future<dynamic> put(String api, dynamic data) async {
-    var url = Uri.parse(baseUrl + api);
-    var _data = json.encode(data);
-    debugPrint(_data);
-    var response = await client.put(
-      url,
-      headers: {
-        'Content-Type': 'application/json'
-      }, // Set the Content-Type header
-      body: _data,
-    );
-
-    if (response.statusCode == 201) {
-      return response.body;
-    } else {
-      //throw exception
-    }
-  }
-
-  Future<dynamic> delete(String api) async {
-    var url = Uri.parse(baseUrl + api);
-    var response =
-        await client.delete(url, headers: {'Content-Type': 'application/json'});
+  Future<dynamic> get() async {
+    final response = await client.get(Uri.parse(baseUrl));
     if (response.statusCode == 200) {
       return response.body;
     } else {
-      //throw exception
+      throw Exception();
     }
   }
+
+  // Future<dynamic> post(String api, dynamic data) async {
+  //   var url = Uri.parse(api);
+  //   var _data = json.encode(data);
+  //   debugPrint(_data);
+  //   var response = await client.post(
+  //     url,
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }, // Set the Content-Type header
+  //     body: _data,
+  //   );
+
+  //   if (response.statusCode == 201) {
+  //     return response.body;
+  //   } else {
+  //     throw Exception();
+  //   }
+  // }
+
+  // Future<dynamic> put(String api, dynamic data) async {
+  //   var url = Uri.parse(api);
+  //   var _data = json.encode(data);
+  //   debugPrint(_data);
+  //   var response = await client.put(
+  //     url,
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     }, // Set the Content-Type header
+  //     body: _data,
+  //   );
+
+  //   if (response.statusCode == 201) {
+  //     return response.body;
+  //   } else {
+  //     throw Exception();
+  //   }
+  // }
+
+  // Future<dynamic> delete(String api) async {
+  //   var url = Uri.parse(api);
+  //   var response =
+  //       await client.delete(url, headers: {'Content-Type': 'application/json'});
+  //   if (response.statusCode == 200) {
+  //     return response.body;
+  //   } else {
+  //     throw Exception();
+  //   }
+  // }
 }

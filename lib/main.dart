@@ -5,6 +5,7 @@ import '../Views/profileInterface.dart';
 import '../Models/profile.dart';
 import '../../API/api.dart';
 import 'colorScheme.dart';
+import 'package:http/http.dart' as http;
 
 List<Person> listOfPeople = [];
 int totalCount = 0;
@@ -15,7 +16,8 @@ void main() async {
 }
 
 Future<void> fetchData() async {
-  var response = await ApiVerbs().get("users");
+  final client = http.Client();
+  var response = await ApiVerbs(client).get();
   var descriptions = personFromJson(response);
   for (var person in descriptions) {
     listOfPeople.add(person);
